@@ -1,0 +1,206 @@
+/**
+ * Login Page Styles
+ * 
+ * Authentication form with centered layout, input fields, and error display
+ */
+
+/* Main Container */
+.login-page {
+  max-width: 420px;
+  margin: 50px auto;
+  padding: var(--space-2xl);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  animation: fadeIn 0.5s ease-out, slideInUp 0.5s ease-out;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: var(--transition-glow);
+}
+
+.login-page:hover {
+  border-color: var(--primary-blue);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Heading */
+.login-page h1 {
+  color: var(--text-primary);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: var(--space-lg);
+  text-align: center;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Error Message */
+.login-error {
+  color: var(--error-text);
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-md);
+  font-size: 0.9rem;
+  animation: slideInDown 0.3s ease-out;
+}
+
+/* Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* Form Group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.form-group label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-dark);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: var(--transition-base);
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 2px rgba(0, 102, 255, 0.1);
+}
+
+.form-group input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Submit Button */
+.login-submit {
+  width: 100%;
+  padding: var(--space-md);
+  background: var(--gradient-primary);
+  color: var(--text-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-glow);
+  box-shadow: 0 2px 8px rgba(0, 102, 255, 0.3);
+}
+
+.login-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.login-submit:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.login-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 44px; /* room for icon */
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+.password-toggle:hover {
+  color: var(--text-primary);
+}
+
+.password-toggle:focus {
+  outline: none;
+}
+
+
+/* Forgot Password Link */
+.forgot-password-link {
+  margin-top: 8px;
+  text-align: right;
+}
+
+.forgot-password-link a {
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: var(--transition-base);
+}
+
+.forgot-password-link a:hover {
+  color: var(--accent-blue);
+  text-decoration: underline;
+}
+
+/* Register Link */
+.login-footer {
+  margin-top: var(--space-lg);
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.login-footer a {
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition-base);
+}
+
+.login-footer a:hover {
+  color: var(--accent-blue);
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-page {
+    margin: var(--space-lg) var(--space-md);
+    padding: var(--space-xl);
+  }
+
+  .login-page h1 {
+    font-size: 1.75rem;
+  }
+
+  .form-group input {
+    font-size: 16px; /* Prevent iOS zoom on focus */
+  }
+}

@@ -1,0 +1,366 @@
+/**
+ * Register Page Styles
+ * 
+ * Registration form with account type selection, trader/server creator specific fields
+ */
+
+/* Main Container */
+.register-page {
+  max-width: 480px;
+  margin: 50px auto;
+  padding: var(--space-2xl);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  animation: fadeIn 0.5s ease-out, slideInUp 0.5s ease-out;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: var(--transition-glow);
+}
+
+.register-page:hover {
+  border-color: var(--primary-blue);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Heading */
+.register-page h1 {
+  color: var(--text-primary);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: var(--space-lg);
+  text-align: center;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Error Message */
+.register-error {
+  color: var(--error-text);
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-md);
+  font-size: 0.9rem;
+  animation: slideInDown 0.3s ease-out;
+}
+
+/* Form */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* Account Type Selection */
+.account-type-section {
+  margin-bottom: var(--space-lg);
+}
+
+.account-type-section > label {
+  display: block;
+  margin-bottom: var(--space-md);
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.account-type-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.account-type-option {
+  padding: var(--space-lg);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  background: var(--bg-dark);
+  transition: var(--transition-glow);
+  animation: scaleIn 0.4s ease-out;
+}
+
+.account-type-option:nth-child(1) { animation-delay: 0.1s; }
+.account-type-option:nth-child(2) { animation-delay: 0.2s; }
+.account-type-option:nth-child(3) { animation-delay: 0.3s; }
+
+.account-type-option input[type="radio"] {
+  margin-right: var(--space-sm);
+  cursor: pointer;
+}
+
+.account-type-option strong {
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.account-type-description {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: var(--space-xs);
+  margin-left: 26px;
+  line-height: 1.4;
+}
+
+/* Normal User Type */
+.account-type-option.normal-selected {
+  border-color: var(--text-secondary);
+  background: rgba(108, 117, 125, 0.05);
+  box-shadow: 0 0 10px rgba(108, 117, 125, 0.2);
+}
+
+/* Trader Type */
+.account-type-option.trader-selected {
+  border-color: var(--primary-blue);
+  background: rgba(0, 102, 255, 0.05);
+  box-shadow: 0 0 10px rgba(0, 102, 255, 0.2);
+}
+
+/* Server Creator Type */
+.account-type-option.creator-selected {
+  border-color: var(--success-border);
+  background: rgba(40, 167, 69, 0.05);
+  box-shadow: 0 0 10px rgba(40, 167, 69, 0.2);
+}
+
+.account-type-option:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Server Selection Section (Trader) */
+.server-selection-section {
+  padding: var(--space-lg);
+  background: rgba(0, 102, 255, 0.05);
+  border: 1px solid var(--primary-blue);
+  border-radius: var(--radius-md);
+  animation: slideInUp 0.3s ease-out;
+}
+
+.server-selection-section > label {
+  display: block;
+  margin-bottom: var(--space-sm);
+  font-weight: 700;
+  color: var(--primary-blue);
+}
+
+.server-selection-loading {
+  padding: var(--space-md);
+  color: var(--text-secondary);
+}
+
+.server-selection-section select {
+  width: 100%;
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: var(--transition-base);
+  box-sizing: border-box;
+}
+
+.server-selection-section select:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 2px rgba(0, 102, 255, 0.1);
+}
+
+.server-selection-hint {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: var(--space-sm);
+}
+
+/* Tier Selection Section (Server Creator) */
+.tier-selection-section {
+  padding: var(--space-lg);
+  background: rgba(40, 167, 69, 0.05);
+  border: 1px solid var(--success-border);
+  border-radius: var(--radius-md);
+  animation: slideInUp 0.3s ease-out;
+}
+
+.tier-selection-section > label:first-of-type {
+  display: block;
+  margin-bottom: var(--space-sm);
+  font-weight: 700;
+  color: var(--success-text);
+}
+
+.tier-selection-section select {
+  width: 100%;
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  font-size: 1rem;
+  margin-bottom: var(--space-lg);
+  transition: var(--transition-base);
+  box-sizing: border-box;
+}
+
+.tier-selection-section select:focus {
+  outline: none;
+  border-color: var(--success-border);
+  box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.1);
+}
+
+.tier-selection-section label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.tier-selection-section input {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+  transition: var(--transition-base);
+  box-sizing: border-box;
+}
+
+.tier-selection-section input:focus {
+  outline: none;
+  border-color: var(--success-border);
+  box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.1);
+}
+
+.payment-notice {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: var(--space-md);
+  background: var(--bg-card);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  line-height: 1.5;
+}
+
+/* Form Group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.form-group label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-dark);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: var(--transition-base);
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 2px rgba(0, 102, 255, 0.1);
+}
+
+.form-group input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Submit Button */
+.register-submit {
+  width: 100%;
+  padding: var(--space-md);
+  background: rgba(0, 102, 255, 0.3);
+  border: 1px solid rgba(0, 102, 255, 0.5);
+  backdrop-filter: blur(10px);
+  color: var(--text-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-glow);
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+}
+
+.register-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(40, 167, 69, 0.5);
+}
+
+.register-submit:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.register-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Login Link */
+.register-footer {
+  margin-top: var(--space-lg);
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.register-footer a {
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition-base);
+}
+
+.register-footer a:hover {
+  color: var(--accent-blue);
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .register-page {
+    margin: var(--space-lg) var(--space-md);
+    padding: var(--space-xl);
+  }
+
+  .register-page h1 {
+    font-size: 1.75rem;
+  }
+
+  .account-type-option {
+    padding: var(--space-md);
+  }
+
+  .account-type-option strong {
+    font-size: 0.95rem;
+  }
+
+  .account-type-description {
+    font-size: 0.8rem;
+  }
+
+  .form-group input,
+  .server-selection-section select,
+  .tier-selection-section select,
+  .tier-selection-section input {
+    font-size: 16px; /* Prevent iOS zoom on focus */
+  }
+}

@@ -1,0 +1,123 @@
+.cancel-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: var(--gradient-hero);
+}
+
+.cancel-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: var(--shadow-elevation-high);
+  text-align: center;
+}
+
+.cancel-icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+}
+
+.cancel-card h1 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: var(--text-primary);
+}
+
+.message {
+  color: var(--text-secondary);
+  font-size: 16px;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.info-box {
+  background: var(--warning-bg);
+  border: 1px solid var(--warning-border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+.info-box p {
+  margin: 10px 0;
+  color: var(--warning-text);
+  font-size: 14px;
+  text-align: left;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.retry-button {
+  padding: 16px;
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-normal);
+}
+
+.retry-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.dashboard-button {
+  padding: 14px;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.dashboard-button:hover {
+  background: var(--bg-dark);
+  border-color: var(--border-color-hover);
+}
+
+.help-section {
+  padding-top: 20px;
+  border-top: 1px solid var(--divider);
+}
+
+.help-title {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.help-text {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .cancel-card {
+    padding: 30px 20px;
+  }
+
+  .cancel-card h1 {
+    font-size: 24px;
+  }
+
+  .cancel-icon {
+    font-size: 48px;
+  }
+}

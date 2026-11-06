@@ -1,0 +1,716 @@
+/**
+ * Server Owner Analytics Styles
+ * 
+ * Deep analytics dashboard with tab navigation, metric cards, tables, and tier-based features
+ */
+
+/* Main Container */
+.analytics-page {
+  padding: var(--space-2xl);
+  max-width: 1400px;
+  margin: 0 auto;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Loading/Error States */
+.analytics-loading,
+.analytics-error,
+.analytics-access-denied,
+.analytics-not-found {
+  padding: var(--space-2xl);
+  text-align: center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.analytics-loading h2,
+.analytics-error h2,
+.analytics-access-denied h2,
+.analytics-not-found h2 {
+  color: var(--text-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.analytics-error p,
+.analytics-access-denied p {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+.analytics-back-button {
+  padding: var(--space-md) var(--space-lg);
+  margin-top: var(--space-lg);
+  cursor: pointer;
+  background: var(--gradient-primary);
+  color: var(--text-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  transition: var(--transition-glow);
+}
+
+.analytics-back-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Header Section */
+.analytics-header {
+  margin-bottom: var(--space-2xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: slideInDown 0.5s ease-out;
+}
+
+.analytics-header-info {
+  flex: 1;
+}
+
+.analytics-header-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xs);
+}
+
+.analytics-header-title h1 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.analytics-tier-badge {
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.analytics-header-members {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.analytics-header-actions {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.analytics-header-actions button {
+  padding: var(--space-md) var(--space-lg);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition-glow);
+  color: var(--text-primary);
+}
+
+.analytics-header-actions button.primary {
+  background: var(--gradient-primary);
+  box-shadow: 0 2px 8px rgba(0, 102, 255, 0.3);
+}
+
+.analytics-header-actions button.secondary {
+  background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+}
+
+.analytics-header-actions button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Tab Navigation */
+.analytics-tabs {
+  margin-bottom: var(--space-2xl);
+  border-bottom: 2px solid var(--border-color);
+  animation: slideInLeft 0.5s ease-out 0.2s both;
+}
+
+.analytics-tabs-list {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.analytics-tab-button {
+  padding: var(--space-md) var(--space-xl);
+  background: transparent;
+  color: var(--text-secondary);
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: var(--transition-base);
+}
+
+.analytics-tab-button.active {
+  background: var(--gradient-primary);
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--primary-blue);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.analytics-tab-button:hover:not(.active) {
+  color: var(--text-primary);
+  background: var(--bg-dark);
+}
+
+/* Section Headings */
+.analytics-section-heading {
+  margin-bottom: var(--space-lg);
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Metrics Grid */
+.analytics-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+  animation: slideInUp 0.5s ease-out 0.3s both;
+}
+
+/* Metric Card */
+.metric-card {
+  background: rgba(0, 102, 255, 0.05);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(0, 102, 255, 0.2);
+  text-align: center;
+  transition: all 0.3s ease;
+  padding: var(--space-lg);
+  /* Remove automatic staggered animation - now controlled by scroll */
+}
+
+.metric-card:nth-child(1) { animation-delay: 0.1s; }
+.metric-card:nth-child(2) { animation-delay: 0.2s; }
+.metric-card:nth-child(3) { animation-delay: 0.3s; }
+.metric-card:nth-child(4) { animation-delay: 0.4s; }
+.metric-card:nth-child(5) { animation-delay: 0.5s; }
+.metric-card:nth-child(6) { animation-delay: 0.6s; }
+
+.metric-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow);
+  border-color: var(--primary-blue);
+}
+
+.metric-card-title {
+  font-size: 0.875rem;
+  color: rgba(100, 149, 237, 0.9);
+  margin-bottom: var(--space-xs);
+  font-weight: 500;
+}
+
+.metric-card-value {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: var(--space-xs);
+  line-height: 1;
+  color: white;
+}
+
+/* Data Table */
+.analytics-table-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: var(--space-2xl);
+  animation: slideInUp 0.5s ease-out;
+}
+
+.analytics-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.analytics-table thead {
+  background: var(--bg-dark);
+}
+
+.analytics-table thead tr {
+  border-bottom: 2px solid var(--border-color);
+}
+
+.analytics-table th {
+  padding: var(--space-md);
+  text-align: left;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.analytics-table th.text-right {
+  text-align: right;
+}
+
+.analytics-table tbody tr {
+  border-bottom: 1px solid var(--border-color);
+  transition: var(--transition-base);
+}
+
+.analytics-table tbody tr:hover {
+  background: var(--bg-dark);
+}
+
+.analytics-table td {
+  padding: var(--space-md);
+  color: var(--text-secondary);
+}
+
+.analytics-table td.bold {
+  font-weight: 700;
+}
+
+.analytics-table td.text-right {
+  text-align: right;
+}
+
+.analytics-table td.success {
+  color: var(--success-text);
+  font-weight: 700;
+}
+
+/* Rank Styling - Simplified for consistency */
+
+/* Highlight Cards */
+.highlight-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+}
+
+.highlight-card {
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  background: rgba(0, 102, 255, 0.05);
+  border: 1px solid rgba(0, 102, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow);
+  border-color: var(--primary-blue);
+}
+
+.highlight-card h3 {
+  margin: 0 0 var(--space-md) 0;
+  font-size: 1.1rem;
+  color: rgba(100, 149, 237, 0.9);
+}
+
+.highlight-card .trader-name {
+  margin: 5px 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.highlight-card .amount {
+  margin: 5px 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+}
+
+.highlight-card .details {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.highlight-card .date {
+  margin: 5px 0;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+/* Pokemon Card Styles */
+.pokemon-card-container {
+  margin-bottom: var(--space-2xl);
+  animation: slideInDown 0.5s ease-out;
+}
+
+.pokemon-card-border {
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 51, 153, 0.1) 100%);
+  padding: 3px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px rgba(0, 102, 255, 0.2);
+}
+
+.pokemon-card-content {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  border: 1px solid rgba(0, 102, 255, 0.3);
+}
+
+.pokemon-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-lg);
+}
+
+.pokemon-card-title-section {
+  display: flex;
+  gap: var(--space-lg);
+  flex: 1;
+}
+
+.server-logo-wrapper {
+  flex-shrink: 0;
+}
+
+.pokemon-server-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-md);
+  border: 2px solid rgba(0, 102, 255, 0.3);
+  object-fit: cover;
+}
+
+.pokemon-logo-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-md);
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  border: 2px solid rgba(0, 102, 255, 0.3);
+}
+
+.pokemon-card-title-info {
+  flex: 1;
+}
+
+.pokemon-title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.pokemon-server-name {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.pokemon-verified-badge {
+  padding: 4px 12px;
+  background: rgba(0, 102, 255, 0.2);
+  color: var(--primary-blue);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid var(--primary-blue);
+}
+
+.pokemon-metadata {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.pokemon-platform,
+.pokemon-established,
+.pokemon-rank {
+  color: rgba(100, 149, 237, 0.9);
+}
+
+.pokemon-meta-divider {
+  color: rgba(100, 149, 237, 0.5);
+}
+
+.pokemon-score-badge {
+  flex-shrink: 0;
+}
+
+.pokemon-score-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.pokemon-score-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.pokemon-score-label {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.pokemon-description {
+  margin: 0 0 var(--space-lg) 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.pokemon-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: 1px solid rgba(0, 102, 255, 0.2);
+}
+
+.pokemon-stat {
+  text-align: center;
+}
+
+.pokemon-stat-label {
+  font-size: 0.75rem;
+  color: rgba(100, 149, 237, 0.9);
+  margin-bottom: var(--space-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pokemon-stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+}
+
+/* Trader Category Badge */
+.trader-category-badge {
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: rgba(0, 102, 255, 0.15);
+  color: var(--primary-blue);
+  border: 1px solid rgba(0, 102, 255, 0.3);
+}
+
+/* Market Category Card */
+.market-category-card {
+  margin-bottom: var(--space-2xl);
+  padding: var(--space-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  animation: slideInUp 0.4s ease-out;
+}
+
+.market-category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-lg);
+}
+
+.market-category-header h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1.3rem;
+}
+
+.market-trend-badge {
+  padding: 6px 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.market-trend-badge.growing {
+  background: rgba(0, 102, 255, 0.15);
+  color: var(--primary-blue);
+  border: 1px solid rgba(0, 102, 255, 0.3);
+}
+
+.market-trend-badge.declining {
+  background: rgba(100, 149, 237, 0.1);
+  color: rgba(100, 149, 237, 0.9);
+  border: 1px solid rgba(100, 149, 237, 0.3);
+}
+
+.market-trend-badge.stable {
+  background: var(--bg-dark);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.market-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.market-stat {
+  margin: 0;
+}
+
+.market-stat-label {
+  margin: 0 0 5px 0;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.market-stat-value {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+}
+
+.market-stat-value.primary {
+  color: var(--primary-blue);
+}
+
+.market-instruments-section h4 {
+  margin: var(--space-lg) 0 var(--space-md) 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.market-instruments-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.market-instrument-chip {
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-dark);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.market-instrument-chip strong {
+  color: var(--text-primary);
+}
+
+/* Quality Metrics */
+.rejection-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.rejection-item {
+  padding: var(--space-lg);
+  background: rgba(0, 102, 255, 0.05);
+  border: 1px solid rgba(0, 102, 255, 0.2);
+  border-radius: var(--radius-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: var(--transition-base);
+}
+
+.rejection-item:hover {
+  transform: translateX(4px);
+  border-color: var(--primary-blue);
+}
+
+.rejection-item span:first-child {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.rejection-count {
+  padding: 4px 12px;
+  background: rgba(0, 102, 255, 0.2);
+  color: var(--text-primary);
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 700;
+  border: 1px solid rgba(0, 102, 255, 0.3);
+}
+
+/* Upgrade Prompt Container */
+.upgrade-prompt-container {
+  margin-top: var(--space-2xl);
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .analytics-page {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .analytics-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-lg);
+  }
+
+  .analytics-header-title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
+  .analytics-header-title h1 {
+    font-size: 1.5rem;
+  }
+
+  .analytics-header-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .analytics-header-actions button {
+    width: 100%;
+  }
+
+  .analytics-tabs-list {
+    overflow-x: auto;
+    gap: var(--space-xs);
+  }
+
+  .analytics-tab-button {
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .analytics-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .highlight-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .market-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .analytics-table th,
+  .analytics-table td {
+    padding: var(--space-sm);
+    font-size: 0.85rem;
+  }
+}

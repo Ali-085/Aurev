@@ -1,0 +1,1010 @@
+/* Trader Profile Analytics Page */
+
+.trader-profile {
+  padding: var(--space-lg);
+  max-width: 1600px;
+  margin: 0 auto;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.trader-profile-loading,
+.trader-profile-error {
+  padding: var(--space-lg);
+  text-align: center;
+  color: var(--text-primary);
+}
+
+.trader-profile-not-available {
+  padding: var(--space-2xl);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  animation: scaleIn 0.4s ease-out;
+}
+
+.trader-profile-not-available .icon {
+  font-size: 4rem;
+  margin-bottom: var(--space-lg);
+  opacity: 0.6;
+}
+
+.trader-profile-not-available h2 {
+  margin-bottom: var(--space-md);
+  color: var(--text-primary);
+}
+
+.trader-profile-not-available p {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xl);
+  line-height: 1.6;
+}
+
+.trader-profile-not-available .button-group {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.trader-profile-not-available button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: var(--transition-glow);
+}
+
+.trader-profile-not-available button.primary {
+  background: var(--gradient-primary);
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.trader-profile-not-available button.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.trader-profile-not-available button.secondary {
+  background: var(--bg-dark);
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.trader-profile-not-available button.secondary:hover {
+  border-color: var(--primary-blue);
+  box-shadow: var(--shadow-glow);
+}
+
+/* ==================== TRADER POKEMON CARD HEADER ==================== */
+
+.trader-pokemon-card-header {
+  margin-bottom: var(--space-xl);
+  perspective: 1000px;
+  animation: slideInDown 0.5s ease-out;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.trader-pokemon-card-border {
+  background: linear-gradient(135deg, 
+    rgba(0, 102, 255, 0.15) 0%, 
+    rgba(0, 102, 255, 0.05) 50%,
+    rgba(0, 102, 255, 0.15) 100%);
+  padding: 3px;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 
+    0 6px 24px rgba(0, 102, 255, 0.2),
+    0 0 0 1px rgba(0, 102, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+}
+
+.trader-pokemon-card-border:hover {
+  box-shadow: 
+    0 10px 40px rgba(0, 102, 255, 0.3),
+    0 0 0 1px rgba(0, 102, 255, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px);
+}
+
+.trader-pokemon-card-content {
+  background: linear-gradient(180deg, 
+    rgba(0, 20, 40, 0.95) 0%,
+    rgba(0, 30, 60, 0.92) 50%,
+    rgba(0, 20, 40, 0.95) 100%);
+  border-radius: 18px;
+  padding: var(--space-lg);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0, 102, 255, 0.2);
+}
+
+/* Holographic Shine Effect */
+.trader-pokemon-card-shine {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(0, 102, 255, 0.03) 45%,
+    rgba(0, 153, 255, 0.08) 50%,
+    rgba(0, 102, 255, 0.03) 55%,
+    transparent 100%
+  );
+  pointer-events: none;
+  animation: traderHoloShine 8s linear infinite;
+}
+
+@keyframes traderHoloShine {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Top Section */
+.trader-pokemon-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+  position: relative;
+  z-index: 2;
+}
+
+.trader-pokemon-title-section {
+  flex: 1;
+}
+
+.trader-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.trader-pokemon-name {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, rgba(0, 153, 255, 1), rgba(0, 102, 255, 0.8));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.trader-pokemon-subtitle {
+  margin: 0;
+  font-size: 0.8rem;
+  color: rgba(100, 149, 237, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.trader-pokemon-ranks {
+  display: flex;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.trader-rank-badge {
+  padding: 4px 10px;
+  background: rgba(0, 102, 255, 0.15);
+  color: rgba(0, 153, 255, 0.95);
+  border: 1px solid rgba(0, 102, 255, 0.3);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Score Circle */
+.trader-pokemon-score-badge {
+  flex-shrink: 0;
+}
+
+.trader-pokemon-score-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid rgba(0, 102, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.1), transparent);
+  box-shadow: 
+    0 0 16px rgba(0, 102, 255, 0.4),
+    inset 0 0 16px rgba(0, 102, 255, 0.1);
+  animation: traderPulse 3s ease-in-out infinite;
+}
+
+@keyframes traderPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.trader-pokemon-score-value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.trader-pokemon-score-label {
+  font-size: 0.6rem;
+  color: rgba(100, 149, 237, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  font-weight: 600;
+}
+
+/* Stats Section */
+.trader-pokemon-stats-section {
+  margin: var(--space-md) 0;
+  padding: var(--space-sm);
+  background: rgba(0, 102, 255, 0.03);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(0, 102, 255, 0.15);
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.trader-pokemon-stat-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.trader-pokemon-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: var(--space-sm);
+  background: rgba(0, 102, 255, 0.05);
+  border-radius: var(--radius-sm);
+  transition: all 0.3s ease;
+}
+
+.trader-pokemon-stat:hover {
+  background: rgba(0, 102, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.trader-stat-label {
+  font-size: 0.65rem;
+  color: rgba(100, 149, 237, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  text-align: center;
+}
+
+.trader-stat-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: rgba(0, 153, 255, 0.95);
+}
+
+/* Badges Preview */
+.trader-pokemon-badges-preview {
+  margin: var(--space-md) 0;
+  padding: var(--space-sm);
+  background: rgba(0, 102, 255, 0.05);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(0, 102, 255, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+.trader-badges-label {
+  font-size: 0.75rem;
+  color: rgba(100, 149, 237, 0.9);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.trader-badges-mini {
+  display: flex;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.trader-badge-mini {
+  width: 36px;
+  height: 36px;
+  background: rgba(0, 102, 255, 0.1);
+  border: 1px solid rgba(0, 102, 255, 0.3);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.trader-badge-mini:hover {
+  transform: scale(1.1);
+  background: rgba(0, 102, 255, 0.2);
+  border-color: rgba(0, 102, 255, 0.5);
+}
+
+.trader-badge-mini.more {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(0, 153, 255, 0.9);
+}
+
+/* Action Buttons */
+.trader-pokemon-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  position: relative;
+  z-index: 2;
+}
+
+.trader-btn-primary,
+.trader-btn-secondary {
+  padding: 10px 16px;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.trader-btn-primary {
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.9), rgba(0, 102, 255, 0.7));
+  color: white;
+}
+
+.trader-btn-primary:hover {
+  background: linear-gradient(135deg, rgba(0, 102, 255, 1), rgba(0, 102, 255, 0.8));
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 102, 255, 0.3);
+}
+
+.trader-btn-secondary {
+  background: rgba(0, 102, 255, 0.1);
+  color: rgba(0, 153, 255, 0.9);
+  border: 1px solid rgba(0, 102, 255, 0.3);
+}
+
+.trader-btn-secondary:hover {
+  background: rgba(0, 102, 255, 0.15);
+  border-color: rgba(0, 102, 255, 0.5);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 102, 255, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .trader-pokemon-card-header {
+    max-width: 100%;
+  }
+
+  .trader-pokemon-card-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .trader-pokemon-score-badge {
+    align-self: center;
+  }
+
+  .trader-pokemon-name {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .trader-pokemon-card-content {
+    padding: var(--space-md);
+  }
+
+  .trader-pokemon-stat-row {
+    grid-template-columns: 1fr;
+  }
+
+  .trader-pokemon-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==================== END TRADER POKEMON CARD HEADER ==================== */
+
+/* Header */
+.trader-profile-header {
+  margin-bottom: var(--space-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: slideInDown 0.5s ease-out;
+}
+
+.trader-profile-header-info h1 {
+  margin-bottom: var(--space-sm);
+  font-size: 2rem;
+  color: var(--text-primary);
+}
+
+.trader-profile-header-info p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.trader-profile-header-actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.trader-profile-header-actions button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  transition: var(--transition-glow);
+}
+
+.trader-profile-header-actions button.primary {
+  background: var(--gradient-primary);
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.trader-profile-header-actions button.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.trader-profile-header-actions button.secondary {
+  background: var(--bg-dark);
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.trader-profile-header-actions button.secondary:hover {
+  border-color: var(--primary-blue);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Badges Section */
+.badges-section {
+  margin-bottom: var(--space-xl);
+}
+
+.badges-section h2 {
+  margin-bottom: var(--space-md);
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+
+.badges-grid {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.badge-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  transition: var(--transition-glow);
+  min-width: 140px;
+}
+
+.badge-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow);
+}
+
+.badge-card .icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-sm);
+}
+
+.badge-card .name {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.badge-card .description {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+/* Stats Overview Section */
+.stats-overview-section {
+  margin-bottom: var(--space-xl);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-lg);
+}
+
+/* Consistency Section */
+.consistency-section {
+  margin-bottom: var(--space-xl);
+}
+
+.consistency-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-lg);
+}
+
+.consistency-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  transition: var(--transition-glow);
+  box-shadow: var(--shadow-md);
+}
+
+.consistency-card:hover {
+  box-shadow: var(--shadow-glow);
+  border-color: var(--primary-blue);
+  transform: translateY(-4px);
+}
+
+.consistency-card .label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-sm);
+  font-weight: 500;
+}
+
+.consistency-card .value {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: var(--space-xs);
+}
+
+.consistency-card .subvalue {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.consistency-card .description {
+  margin-top: var(--space-md);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.consistency-card .divider {
+  border-top: 1px solid var(--divider);
+  padding-top: 4px;
+  margin-top: var(--space-md);
+}
+
+.consistency-card .secondary-value {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--text-secondary);
+}
+
+.consistency-card .secondary-label {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.consistency-card.no-data {
+  padding: var(--space-lg);
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.consistency-card.no-data .message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* Rankings Section */
+.rankings-section {
+  margin-bottom: var(--space-xl);
+}
+
+.rankings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-lg);
+}
+
+.ranking-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  transition: var(--transition-glow);
+  box-shadow: var(--shadow-md);
+}
+
+.ranking-card:hover {
+  box-shadow: var(--shadow-glow);
+  border-color: var(--primary-blue);
+  transform: translateY(-4px);
+}
+
+.ranking-card .icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-sm);
+}
+
+.ranking-card .label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-sm);
+  font-weight: 500;
+}
+
+.ranking-card .rank {
+  font-size: 2.625rem;
+  font-weight: bold;
+  color: var(--primary-blue-light);
+  margin-bottom: var(--space-xs);
+}
+
+.ranking-card .sublabel {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.ranking-card .percentile {
+  font-size: 0.75rem;
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+.ranking-card .server-info {
+  font-size: 0.875rem;
+  margin-bottom: var(--space-sm);
+  color: var(--text-primary);
+}
+
+.ranking-card .server-name {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.ranking-card button {
+  margin-top: var(--space-md);
+  padding: 8px 20px;
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: var(--transition-glow);
+  box-shadow: var(--shadow-sm);
+}
+
+.ranking-card button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Section Title */
+.section-title {
+  margin-bottom: var(--space-2xl);
+}
+
+.section-title h2 {
+  margin-bottom: var(--space-lg);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+/* Stat Card */
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  transition: var(--transition-glow);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-card:hover {
+  box-shadow: var(--shadow-glow);
+  border-color: var(--primary-blue);
+  transform: translateY(-4px);
+}
+
+.stat-card .icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-sm);
+}
+
+.stat-card .label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-sm);
+  font-weight: 500;
+}
+
+.stat-card .value {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: var(--space-xs);
+}
+
+.stat-card .subtext {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+/* Market Performance Card */
+.market-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  transition: var(--transition-glow);
+  box-shadow: var(--shadow-md);
+}
+
+.market-card:hover {
+  box-shadow: var(--shadow-glow);
+  border-color: var(--primary-blue);
+  transform: translateY(-4px);
+}
+
+.market-card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-md);
+}
+
+.market-card-header .icon {
+  font-size: 2rem;
+  margin-right: var(--space-sm);
+}
+
+.market-card-header .market-name {
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+.market-card-payout {
+  margin-bottom: var(--space-sm);
+}
+
+.market-card-payout .label {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  margin-bottom: 3px;
+}
+
+.market-card-payout .value {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.market-card-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.market-card-stats > div {
+  text-align: left;
+}
+
+.market-card-stats .label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.market-card-stats .value {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.market-card-best {
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--divider);
+}
+
+.market-card-best .label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.market-card-best .instrument {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.market-card-best .amount {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.market-card-footer {
+  margin-top: var(--space-sm);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+/* Section Container */
+.section {
+  margin-bottom: 40px;
+}
+
+.section h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+/* Stats Overview Section */
+.stats-overview-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-lg);
+}
+
+/* No Data State */
+.no-data {
+  padding: var(--space-lg);
+  text-align: center;
+  color: var(--text-muted);
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 2px dashed var(--border-color);
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* Button Styles */
+.btn-primary,
+.btn-secondary,
+.btn-success {
+  padding: 12px 24px;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: var(--transition-glow);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 102, 255, 0.2);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, var(--success) 0%, var(--success-border) 100%);
+  color: white;
+}
+
+.btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+/* Ranking Card No Servers State */
+.ranking-card.no-servers {
+  background: var(--bg-secondary);
+  border: 2px dashed var(--border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.ranking-card.no-servers .icon {
+  font-size: 2.5rem;
+}
+
+.ranking-card.no-servers .label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.ranking-card.no-servers .subtext {
+  font-size: 0.8125rem;
+  margin-bottom: var(--space-sm);
+}
+
+.ranking-card.no-servers button {
+  margin-top: var(--space-xs);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .trader-profile {
+    padding: var(--space-md);
+  }
+
+  .trader-profile-header {
+    flex-direction: column;
+    gap: var(--space-md);
+    align-items: flex-start;
+  }
+
+  .trader-profile-header-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .trader-profile-header-actions button {
+    width: 100%;
+  }
+
+  .stats-grid,
+  .stats-overview-section,
+  .consistency-grid,
+  .rankings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .badges-grid {
+    justify-content: center;
+  }
+}
