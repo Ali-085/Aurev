@@ -6,7 +6,7 @@ A comprehensive platform for verified trading communities and payout tracking to
 
 - **Server Management**: Create and manage trading communities
 - **Payout Tracking**: Submit and verify trading payouts with screenshot evidence
-- **Analytics Dashboard**: Comprehensive server and trader analytics
+- **Analytics Dashboard**: Comprehensive server and trader analytics with leaderboards.(verified)
 - **Role-Based Access**: Multi-tier permission system (Admin, Moderator, Server Owner, Trader)
 - **Subscription System**: Stripe-integrated tiered subscriptions
 - **Privacy Controls**: Trader data masking and privacy settings
