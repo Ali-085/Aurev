@@ -1,0 +1,137 @@
+/**
+ * UpgradePrompt Component - Aurevia Dark Theme
+ * Blue gradients with professional glow effects
+ */
+
+.upgrade-prompt-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  text-align: center;
+  max-width: 400px;
+  margin: var(--space-lg) auto;
+  box-shadow: var(--shadow-lg);
+  animation: scaleIn 0.3s ease-out;
+}
+
+.upgrade-icon {
+  font-size: 3rem;
+  margin-bottom: var(--space-md);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.upgrade-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: var(--space-sm) 0;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-blue-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.upgrade-description {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: var(--space-md) 0;
+  line-height: 1.6;
+}
+
+.upgrade-price {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--primary-blue-light);
+  margin: var(--space-lg) 0;
+  text-shadow: 0 0 20px rgba(0, 102, 255, 0.3);
+}
+
+.btn-upgrade {
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  background: var(--gradient-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition-glow);
+  width: 100%;
+  max-width: 300px;
+  box-shadow: var(--shadow-md);
+  outline: none;
+}
+
+.btn-upgrade:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-upgrade:active {
+  transform: translateY(0);
+}
+
+.upgrade-footer {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-top: var(--space-md);
+  font-style: italic;
+}
+
+/* Inline variant */
+.upgrade-prompt-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 6px 12px;
+  background: var(--warning-bg);
+  border: 1px solid var(--warning-border);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.lock-icon {
+  font-size: 1rem;
+}
+
+.upgrade-text {
+  color: var(--warning-text);
+  font-weight: 500;
+}
+
+.btn-upgrade-small {
+  padding: 4px 12px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition-glow);
+  box-shadow: var(--shadow-sm);
+  outline: none;
+}
+
+.btn-upgrade-small:hover {
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-1px);
+}
+
+/* Feature locked overlay */
+.feature-locked {
+  position: relative;
+  opacity: 0.5;
+  pointer-events: none;
+  filter: blur(3px);
+}
+
+.feature-locked-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  animation: scaleIn 0.3s ease-out;
+}

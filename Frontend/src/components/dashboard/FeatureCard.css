@@ -1,0 +1,70 @@
+.feature-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  background: rgba(0, 102, 255, 0.05);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 102, 255, 0.3);
+}
+
+.feature-card-admin {
+  border-color: rgba(255, 0, 100, 0.3);
+  background: linear-gradient(135deg, rgba(255, 0, 100, 0.1), rgba(255, 100, 0, 0.05));
+}
+
+.feature-card-admin:hover {
+  border-color: rgba(255, 0, 100, 0.6);
+  box-shadow: 0 12px 40px rgba(255, 0, 100, 0.3);
+}
+
+.feature-card-moderator {
+  border-color: rgba(0, 200, 255, 0.3);
+  background: linear-gradient(135deg, rgba(0, 200, 255, 0.1), rgba(0, 150, 255, 0.05));
+}
+
+.feature-card-moderator:hover {
+  border-color: rgba(0, 200, 255, 0.6);
+  box-shadow: 0 12px 40px rgba(0, 200, 255, 0.3);
+}
+
+.feature-card-owner {
+  border-color: rgba(100, 200, 0, 0.3);
+  background: linear-gradient(135deg, rgba(100, 200, 0, 0.1), rgba(50, 150, 0, 0.05));
+}
+
+.feature-card-owner:hover {
+  border-color: rgba(100, 200, 0, 0.6);
+  box-shadow: 0 12px 40px rgba(100, 200, 0, 0.3);
+}
+
+.feature-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.feature-content p {
+  color: #aaa;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.feature-arrow {
+  font-size: 2rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-arrow {
+  transform: translateX(8px);
+}

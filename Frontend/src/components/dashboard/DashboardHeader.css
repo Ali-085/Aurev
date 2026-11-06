@@ -1,0 +1,26 @@
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(0, 102, 255, 0.05));
+  border-radius: 12px;
+  border: 1px solid rgba(0, 102, 255, 0.2);
+}
+
+.dashboard-title {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #0066ff, #00ccff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+}
+
+.dashboard-subtitle {
+  color: #888;
+  margin: 0.25rem 0 0 0;
+  font-size: 0.95rem;
+}

@@ -1,0 +1,322 @@
+/* RoleSubscriptionModal.css */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-xl);
+  animation: scaleIn 0.3s ease-out;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-lg);
+  border-bottom: 1px solid var(--divider);
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.75rem;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: var(--transition-fast);
+}
+
+.close-button:hover {
+  color: var(--primary-blue);
+  transform: scale(1.1);
+}
+
+.modal-body {
+  padding: var(--space-lg);
+}
+
+.user-info {
+  padding: var(--space-md);
+  background-color: var(--bg-dark);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-lg);
+}
+
+.user-info p {
+  margin: var(--space-xs) 0;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* Subscription Warning Boxes */
+.subscription-warning {
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-lg);
+  border: 2px solid;
+}
+
+.subscription-warning.info {
+  background-color: var(--info-bg);
+  border-color: var(--info-border);
+  color: var(--info-text);
+}
+
+.subscription-warning.danger {
+  background-color: var(--error-bg);
+  border-color: var(--error-border);
+  color: var(--error-text);
+}
+
+.subscription-warning h4 {
+  margin: 0 0 var(--space-sm) 0;
+  font-size: 1rem;
+}
+
+.subscription-warning p {
+  margin: var(--space-xs) 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: var(--space-lg);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--space-sm);
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.form-group small {
+  display: block;
+  margin-top: var(--space-xs);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  box-sizing: border-box;
+  transition: var(--transition-fast);
+  background: var(--bg-dark);
+  color: var(--text-primary);
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+}
+
+.form-group input.error,
+.form-group select.error,
+.form-group textarea.error {
+  border-color: var(--error);
+}
+
+.error-message {
+  display: block;
+  color: var(--error-text);
+  font-size: 0.75rem;
+  margin-top: var(--space-xs);
+}
+
+/* Role Options */
+.role-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.role-option {
+  display: flex;
+  align-items: flex-start;
+  padding: var(--space-md);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition-glow);
+  background: var(--bg-dark);
+}
+
+.role-option:hover {
+  border-color: var(--primary-blue);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+
+.role-option.selected {
+  border-color: var(--primary-blue);
+  background-color: rgba(0, 102, 255, 0.1);
+  box-shadow: var(--shadow-glow);
+}
+
+.role-option input[type="radio"] {
+  margin-right: 12px;
+  margin-top: 3px;
+  cursor: pointer;
+  accent-color: var(--primary-blue);
+}
+
+.role-info {
+  flex: 1;
+}
+
+.role-info strong {
+  display: block;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.role-info p {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+/* Subscription Configuration Section */
+.subscription-config {
+  padding: var(--space-lg);
+  background-color: var(--bg-dark);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  margin-top: var(--space-lg);
+}
+
+.subscription-config h3 {
+  margin: 0 0 var(--space-md) 0;
+  font-size: 1.125rem;
+  color: var(--text-primary);
+}
+
+/* Override Checkbox */
+.override-checkbox {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  background-color: var(--warning-bg);
+  border: 2px solid var(--warning-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.override-checkbox:hover {
+  box-shadow: var(--shadow-glow);
+}
+
+.override-checkbox.error {
+  border-color: var(--error-border);
+  background-color: var(--error-bg);
+}
+
+.override-checkbox input[type="checkbox"] {
+  margin-right: var(--space-sm);
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--warning);
+}
+
+.override-checkbox strong {
+  color: var(--warning-text);
+}
+
+/* Submit Error */
+.submit-error {
+  padding: 12px;
+  background-color: var(--error-bg);
+  border: 1px solid var(--error-border);
+  border-radius: var(--radius-md);
+  color: var(--error-text);
+  margin-bottom: var(--space-md);
+  font-size: 0.875rem;
+}
+
+/* Modal Footer */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--divider);
+  margin-top: var(--space-lg);
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-glow);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: var(--bg-dark);
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  border-color: var(--primary-blue);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover:not(:disabled) {
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
