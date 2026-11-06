@@ -1,6 +1,6 @@
 # Trading Communities Platform
 
-A comprehensive platform for verified trading communities and payout tracking.
+A comprehensive platform for verified trading communities and payout tracking to distinguish real leaders from fakes.
 
 ## 🚀 Features
 
@@ -162,15 +162,6 @@ python manage.py test
 cd Frontend
 npm test
 ```
-
-## 📝 Documentation
-
-- [Architecture](1/ARCHITECTURE.md)
-- [API Examples](1/API_EXAMPLES.md)
-- [Security Audit](Backend/SECURITY_AUDIT_REPORT.md)
-- [Deployment Guide](1/DEPLOYMENT.md)
-- [Testing Guide](1/TESTING_GUIDE.md)
-
 ## 🤝 Contributing
 
 1. Fork the repository
