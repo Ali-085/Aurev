@@ -23,8 +23,6 @@ A comprehensive platform for verified trading communities and payout tracking.
 - ✅ Atomic database transactions
 - ✅ RBAC permission system
 
-See [SECURITY_AUDIT_REPORT.md](Backend/SECURITY_AUDIT_REPORT.md) for full security audit.
-
 ## 📋 Tech Stack
 
 ### Backend
